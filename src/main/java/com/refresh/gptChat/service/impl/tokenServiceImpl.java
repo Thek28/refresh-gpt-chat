@@ -83,6 +83,7 @@ public class tokenServiceImpl implements tokenService {
     private String xyhelperGetAccessToken(String refreshToken) {
         try {
             log.info("将通过这个网址请求access_token：" + getAccessTokenUrl_xyhelper);
+            log.info("refresh_token：" + refreshToken);
             RequestBody formBody = new FormBody.Builder()
                     .add("refresh_token", refreshToken)
                     .build();
@@ -112,6 +113,7 @@ public class tokenServiceImpl implements tokenService {
     private String oaiGetAccessToken(String refresh_token) {
         try {
             log.info("将通过这个网址请求access_token：" + getAccessTokenUrl_oai);
+            log.info("refresh_token：" + refresh_token);
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("redirect_uri", "com.openai.chat://auth0.openai.com/ios/com.openai.chat/callback");
             jsonObject.put("grant_type", "refresh_token");
@@ -145,6 +147,7 @@ public class tokenServiceImpl implements tokenService {
     private String ninjaGetAccessToken(String refresh_token) {
         try {
             log.info("将通过这个网址请求access_token：" + getAccessTokenUrl_ninja);
+            log.info("refresh_token：" + refresh_token);
             RequestBody emptyBody = RequestBody.create("", mediaType);
             Request request = new Request.Builder()
                     .url(getAccessTokenUrl_ninja)
@@ -173,6 +176,7 @@ public class tokenServiceImpl implements tokenService {
     private String oaiFreeGetAccessToken(String refresh_token) {
         try {
             log.info("将通过这个网址请求access_token：" + getAccessTokenUrl_oaiFree);
+            log.info("refresh_token：" + refresh_token);
             RequestBody body = new FormBody.Builder()
                     .add("refresh_token", refresh_token)
                     .build();
